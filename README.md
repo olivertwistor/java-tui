@@ -17,7 +17,7 @@ This library may be useful for those who work with text-based user interfaces.
 ## Prerequisites
 To run this application, you will need:
 
-* [Java 1.3 or newer][2]
+* [Java 7 or newer][2]
 
 ## Installation instructions
 More info is coming once the first release is out.
