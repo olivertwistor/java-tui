@@ -96,7 +96,7 @@ has links to the download section of each release.
 [2]: https://java.com/download/
 [3]: LICENSE
 [4]: https://github.com/olivertwistor/java-tui/releases
-[5]: #
+[5]: https://github.com/olivertwistor/java-tui/releases/tag/v0.1.0
 [6]: https://ant.apache.org/
 [12]: CONTRIBUTING.md
 [13]: http://semver.org/
