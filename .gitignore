@@ -1,3 +1,5 @@
 .idea/
-out/
+build/
+dist/
+docs/
 *.iml
