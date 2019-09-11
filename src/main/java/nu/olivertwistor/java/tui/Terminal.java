@@ -70,15 +70,25 @@ public final class Terminal
     public static String readString(final String prompt, final Charset charset)
             throws IOException
     {
+        final String input;
+
         System.out.print(prompt);
+
+        // Use our InputStream decorator instead of raw System.in.
+        System.setIn(new UnclosableInputStream(System.in));
 
         try (final BufferedReader br = new BufferedReader(
                 new InputStreamReader(System.in, charset)))
         {
-            final String input = br.readLine();
-
-            return input;
+            input = br.readLine();
         }
+        finally
+        {
+            // Reset System.in.
+            System.setIn(System.in);
+        }
+
+        return input;
     }
 
     /**
