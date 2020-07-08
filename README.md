@@ -1,9 +1,10 @@
 # Java TUI
-This library provides the user with easier writing to and reading from the 
-terminal.
 
 ## Table of contents
-* [Who is this for?](#who-is-this-for)
+* [Background](#background)
+* [Purpose](#purpose)
+* [Goal](#goal)
+* [Stakeholders](#stakeholders)
 * [Prerequisites][1]
 * [Installation instructions](#installation-instructions)
 * [Usage](#usage)
@@ -11,15 +12,17 @@ terminal.
 * [How to contribute](#how-to-contribute)
 * [Versioning](#versioning)
 
-## Who is this for?
-This library may be useful for those who work with text-based user interfaces.
+## Background
+## Purpose
+## Goal
+## Stakeholders
 
 ## Prerequisites
 * [Java 7 or newer][2]
 
 ## Installation instructions
-This is a library, not a stand-alone application. Therefore it's intended to 
-be included within other applications or libraries. 
+This is a library, not a stand-alone application. Include this in your own 
+applications or libraries. 
 
 To make use of this library, please do the following:
 1. Make sure you meet the [prerequisites][1]. 
