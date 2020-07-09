@@ -13,9 +13,22 @@
 * [Versioning](#versioning)
 
 ## Background
+Java is a verbose language. When you want to deal with user interfaces, there 
+is a lot of boiler-plate code you have to write.
+
 ## Purpose
+This library means to alleviate a lot of the boiler-plate code necessary when 
+you want to have a textual user interface.
+
 ## Goal
+The goals of the Java TUI library is to provide common textual user interface 
+functionality, for example:
+* user input following specific formats
+* menus and handling of user choice
+
 ## Stakeholders
+Everyone who don't want to write the same user interface code over and over 
+again for each of their projects, may be interested in this. 
 
 ## Prerequisites
 * [Java 7 or newer][2]
