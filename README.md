@@ -41,6 +41,7 @@ An example:
 ```java
 import nu.olivertwistor.java.tui.Terminal;
 
+@SuppressWarnings("ALL")
 class App
 {
     public static void main(final String[] args) throws Exception
@@ -48,7 +49,7 @@ class App
         Terminal.writeLine("Welcome to this app!");
         Terminal.write("This is the beginning of one line. ");
         Terminal.writeLine("This is continuing on that line.");
-        
+
         final int age = Terminal.readInt("Please state your age: ");
         Terminal.write("Your age is ");
         Terminal.writeLine(age);
@@ -74,13 +75,14 @@ import java.nio.charset.StandardCharsets;
 
 import nu.olivertwistor.java.tui.UnclosableInputStream;
 
+@SuppressWarnings("ALL")
 class App
 {
     public static void main(final String[] args) throws Exception
     {
         // Change the system input stream to prevent it closing.
         System.setIn(new UnclosableInputStream(System.in));
-    
+
         try (final BufferedReader br = new BufferedReader(
                 new InputStreamReader(System.in, StandardCharsets.UTF_8)))
         {

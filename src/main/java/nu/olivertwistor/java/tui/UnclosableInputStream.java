@@ -1,5 +1,8 @@
 package nu.olivertwistor.java.tui;
 
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -16,7 +19,8 @@ import java.io.InputStream;
  * @see <a href="https://stackoverflow.com/a/14962425/2267803">
  *      Idea taken from an Stack Overflow answer by nkukhar</a>
  */
-public class UnclosableInputStream extends InputStream
+@SuppressWarnings({"ClassWithoutLogger", "PublicMethodWithoutLogging"})
+public final class UnclosableInputStream extends InputStream
 {
     /**
      * The InputStream to decorate.
@@ -45,13 +49,13 @@ public class UnclosableInputStream extends InputStream
     }
 
     @Override
-    public int read(final byte[] b) throws IOException
+    public int read(@NotNull final byte[] b) throws IOException
     {
         return this.inputStream.read(b);
     }
 
     @Override
-    public int read(final byte[] b, final int off, final int len)
+    public int read(@NotNull final byte[] b, final int off, final int len)
             throws IOException
     {
         return this.inputStream.read(b, off, len);
@@ -90,17 +94,16 @@ public class UnclosableInputStream extends InputStream
     /**
      * Instead of closing the underlying InputStream, this method does nothing.
      *
-     * @throws IOException never thrown
-     *
      * @since 0.1.0
      */
     @Override
-    public void close() throws IOException
+    public void close()
     {
         // Do nothing instead of closing the underlying stream.
     }
 
     @Override
+    @NonNls
     public String toString()
     {
         return "UnclosableInputStream{" +

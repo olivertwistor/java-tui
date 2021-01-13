@@ -15,9 +15,10 @@ import java.nio.charset.StandardCharsets;
  * writing string representations of objects. Many of these methods are
  * wrappers for {@link PrintStream} and {@link BufferedReader}.
  *
- * @author Johan Nilsson
  * @since  0.1.0
  */
+@SuppressWarnings({"ClassWithoutLogger", "UtilityClassCanBeEnum",
+        "PublicMethodWithoutLogging"})
 public final class Terminal
 {
     /**
@@ -67,10 +68,10 @@ public final class Terminal
      *
      * @see BufferedReader#readLine()
      */
+    @SuppressWarnings("WeakerAccess")
     public static String readString(final String prompt, final Charset charset)
             throws IOException
     {
-        final String input;
 
         System.out.print(prompt);
 
@@ -80,15 +81,13 @@ public final class Terminal
         try (final BufferedReader br = new BufferedReader(
                 new InputStreamReader(System.in, charset)))
         {
-            input = br.readLine();
+            return br.readLine();
         }
         finally
         {
             // Reset System.in.
             System.setIn(System.in);
         }
-
-        return input;
     }
 
     /**
@@ -107,9 +106,10 @@ public final class Terminal
      *
      * @see BufferedReader#readLine()
      */
+    @SuppressWarnings("WeakerAccess")
     public static String readString(final String prompt) throws IOException
     {
-        return readString(prompt, StandardCharsets.UTF_8);
+        return Terminal.readString(prompt, StandardCharsets.UTF_8);
     }
 
     /**
@@ -128,7 +128,7 @@ public final class Terminal
      */
     public static String readString(final Charset charset) throws IOException
     {
-        return readString("", charset);
+        return Terminal.readString("", charset);
     }
 
     /**
@@ -145,7 +145,7 @@ public final class Terminal
      */
     public static String readString() throws IOException
     {
-        return readString("");
+        return Terminal.readString("");
     }
 
     /**
@@ -166,10 +166,9 @@ public final class Terminal
      *
      * @see BufferedReader#readLine()
      */
-    public static int readInt(final String prompt)
-            throws IOException, NumberFormatException
+    public static int readInt(final String prompt) throws IOException
     {
-        final String rawInput = readString(prompt);
+        final String rawInput = Terminal.readString(prompt);
         final int intInput = Integer.parseInt(rawInput);
 
         return intInput;
@@ -191,7 +190,7 @@ public final class Terminal
      */
     public static int readInt() throws IOException
     {
-        return readInt("");
+        return Terminal.readInt("");
     }
 
     /**

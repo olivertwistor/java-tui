@@ -32,9 +32,9 @@ help out with. For information on the necessary steps for that, please read the
 section *[How to make changes to the project][4]*.
 
 ### Report bugs, propose new features or changes in existing features
-All software has bugs and I would very much appreciate help with identifying and
-reporting bugs, so they can be fixed. This is a good way to contribute even if
-you aren't a programmer yourself.
+All software has bugs, and I would very much appreciate help with identifying 
+and reporting bugs, so they can be fixed. This is a good way to contribute even 
+if you aren't a programmer yourself.
 
 #### How to create a new issue
 1. Go to the [new issue][2] page.
