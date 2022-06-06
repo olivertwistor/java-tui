@@ -1,42 +1,32 @@
 # Java TUI
-Java is a verbose language. When you want to deal with user interfaces, there 
-is a lot of boiler-plate code you have to write. This library means to 
-alleviate a lot of the boiler-plate code necessary when you want to have a 
-textual user interface.
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Licensing](#licensing)
+Java is a verbose language. When you want to deal with user interfaces, there is a lot of boiler-plate code you have to write. This library means to alleviate a lot of the boiler-plate code necessary when you want to have a textual user interface.
 
 ## Installation
-This is a library, not a stand-alone application. Include this in your own 
-applications or libraries. 
+
+This is a library, not a stand-alone application. Include this in your own applications or libraries. 
 
 To make use of this library, please do the following:
+
 1. Make sure you meet the prerequisites:
     * [Java 7 or later][2] 
 1. Go to the [releases page][4] and find the specific version you want.
-1. Download `java-tui-x.x.x.jar` and place it in your own application's 
-classpath.
+1. Download `java-tui-x.x.x.jar` and place it in your own application's classpath.
 1. If you want Javadoc, download `java-tui-x.x.x-javadoc.jar`.
-    * Please refer to your particular IDE on how to attach that to the previous 
-    JAR file you downloaded.
-    * If you're not using an IDE, you can unpack the JAR file and browse the 
-    Javadoc in a web browser.
+    * Please refer to your particular IDE on how to attach that to the previous JAR file you downloaded.
+    * If you're not using an IDE, you can unpack the JAR file and browse the Javadoc in a web browser.
     
 To build this library from source, please do the following:
+
 1. Make sure you meet the prerequisites:
     * [Java 7 or later][2]
 1. Go to the [releases page][4] and find the specific version you want.
 1. Download `java-tui-x.x.x-sources.jar` and unpack it.
-1. In that package, along with the source files you'll find the files 
-`build.xml` and `build.properties`. With those, you can build the library 
-(using [Apache ANT][6] or similar tools).
+1. In that package, along with the source files you'll find the files `build.xml` and `build.properties`. With those, you can build the library (using [Apache ANT][6] or similar tools).
 
-## Usage
-In this library, there are two classes: `Terminal` and `UnclosableInputStream`. 
-With `Terminal`, you can write to standard output and read from standard input.
-An example:
+## Usage4
+
+In this library, there are two classes: `Terminal` and `UnclosableInputStream`. With `Terminal`, you can write to standard output and read from standard input. An example:
 
 ```java
 import nu.olivertwistor.java.tui.Terminal;
@@ -98,8 +88,7 @@ class App
 ```
 
 ## Licensing
-This library is licensed under an *MIT License*. You'll find the full license 
-terms in the file [LICENSE][3].
+This library is licensed under an *MIT License*. You'll find the full license terms in the file [LICENSE][3].
 
 
 [2]: https://java.com/download/

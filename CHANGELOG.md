@@ -1,14 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog][1] and this project adheres to 
-[Semantic Versioning 2.0.0][2].
+The format is based on [Keep a Changelog][1] and this project adheres to [Semantic Versioning 2.0.0][2].
 
 ## [0.2.0][4]
+
 * Added
   * Added a Maven POM to make it easier to add this project as a dependency. 
 
 ## [0.1.0][3] (2019-09-11)
+
 * Added
   * The class `Terminal` with static methods for writing to and reading from 
 standard input and output.
