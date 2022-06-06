@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 /**
  * Utility class for writing to and reading from the terminal (standard input
@@ -191,6 +192,63 @@ public final class Terminal
     public static int readInt() throws IOException
     {
         return Terminal.readInt("");
+    }
+
+    /**
+     * Reads a boolean from standard input. It reads everything until the next
+     * line feed, including whitespace.
+     *
+     * @param prompt       string to write to standard output before waiting
+     *                     for input, for example "What is your name? " before
+     *                     waiting for the user to input their name
+     * @param charset      which character set to use when parsing input
+     * @param truthyValues strings that are to be interpreted as Boolean true,
+     *                     for example "y", "1" and "yes". All other strings
+     *                     are interpreted as Boolean false
+     *
+     * @return The user input using the chosen character set, interpreted as a
+     *         boolean.
+     *
+     * @throws IOException if reading from standard input failed.
+     *
+     * @since //todo next released version
+     *
+     * @see BufferedReader#readLine()
+     */
+    public static boolean readBoolean(final String prompt,
+                                      final Charset charset,
+                                      String ...truthyValues)
+            throws IOException
+    {
+        final String rawInput = Terminal.readString(prompt, charset);
+        return Arrays.asList(truthyValues).contains(rawInput);
+    }
+
+    /**
+     * Reads a boolean from standard input. It reads everything until the next
+     * line feed, including whitespace.
+     *
+     * @param prompt       string to write to standard output before waiting
+     *                     for input, for example "What is your name? " before
+     *                     waiting for the user to input their name
+     * @param truthyValues strings that are to be interpreted as Boolean true,
+     *                     for example "y", "1" and "yes". All other strings
+     *                     are interpreted as Boolean false
+     *
+     * @return The user input using UTF-8, interpreted as a boolean.
+     *
+     * @throws IOException if reading from standard input failed.
+     *
+     * @since //todo next released version
+     *
+     * @see BufferedReader#readLine()
+     */
+    public static boolean readBoolean(final String prompt,
+                                      String ...truthyValues)
+            throws IOException
+    {
+        return Terminal.readBoolean(
+                prompt, StandardCharsets.UTF_8, truthyValues);
     }
 
     /**
