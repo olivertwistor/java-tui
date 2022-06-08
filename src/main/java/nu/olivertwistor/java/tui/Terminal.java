@@ -6,18 +6,21 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Utility class for writing to and reading from the terminal (standard input
  * and output).
- *
+ * <p>
  * It has convenience methods for reading strings and integers, as well as
  * writing string representations of objects. Many of these methods are
  * wrappers for {@link PrintStream} and {@link BufferedReader}.
  *
- * @author Johan Nilsson
  * @since  0.1.0
  */
+@SuppressWarnings({"ClassWithoutLogger", "PublicMethodWithoutLogging",
+        "WeakerAccess"})
 public final class Terminal
 {
     /**
@@ -67,10 +70,10 @@ public final class Terminal
      *
      * @see BufferedReader#readLine()
      */
+    @SuppressWarnings("WeakerAccess")
     public static String readString(final String prompt, final Charset charset)
             throws IOException
     {
-        final String input;
 
         System.out.print(prompt);
 
@@ -80,15 +83,13 @@ public final class Terminal
         try (final BufferedReader br = new BufferedReader(
                 new InputStreamReader(System.in, charset)))
         {
-            input = br.readLine();
+            return br.readLine();
         }
         finally
         {
             // Reset System.in.
             System.setIn(System.in);
         }
-
-        return input;
     }
 
     /**
@@ -107,6 +108,7 @@ public final class Terminal
      *
      * @see BufferedReader#readLine()
      */
+    @SuppressWarnings("WeakerAccess")
     public static String readString(final String prompt) throws IOException
     {
         return readString(prompt, StandardCharsets.UTF_8);
@@ -166,8 +168,7 @@ public final class Terminal
      *
      * @see BufferedReader#readLine()
      */
-    public static int readInt(final String prompt)
-            throws IOException, NumberFormatException
+    public static int readInt(final String prompt) throws IOException
     {
         final String rawInput = readString(prompt);
         final int intInput = Integer.parseInt(rawInput);
@@ -192,6 +193,64 @@ public final class Terminal
     public static int readInt() throws IOException
     {
         return readInt("");
+    }
+
+    /**
+     * Reads a boolean from standard input. It reads everything until the next
+     * line feed, including whitespace.
+     *
+     * @param prompt       string to write to standard output before waiting
+     *                     for input, for example "What is your name? " before
+     *                     waiting for the user to input their name
+     * @param charset      which character set to use when parsing input
+     * @param truthyValues strings that are to be interpreted as Boolean true,
+     *                     for example "y", "1" and "yes". All other strings
+     *                     are interpreted as Boolean false
+     *
+     * @return The user input using the chosen character set, interpreted as a
+     *         boolean.
+     *
+     * @throws IOException if reading from standard input failed.
+     *
+     * @since 0.3.0
+     *
+     * @see BufferedReader#readLine()
+     */
+    public static boolean readBoolean(final String prompt,
+                                      final Charset charset,
+                                      final String[] truthyValues)
+            throws IOException
+    {
+        final String rawInput = readString(prompt, charset);
+        final List<String> strings = Arrays.asList(truthyValues);
+
+        return strings.contains(rawInput);
+    }
+
+    /**
+     * Reads a boolean from standard input. It reads everything until the next
+     * line feed, including whitespace.
+     *
+     * @param prompt       string to write to standard output before waiting
+     *                     for input, for example "What is your name? " before
+     *                     waiting for the user to input their name
+     * @param truthyValues strings that are to be interpreted as Boolean true,
+     *                     for example "y", "1" and "yes". All other strings
+     *                     are interpreted as Boolean false
+     *
+     * @return The user input using UTF-8, interpreted as a boolean.
+     *
+     * @throws IOException if reading from standard input failed.
+     *
+     * @since 0.3.0
+     *
+     * @see BufferedReader#readLine()
+     */
+    public static boolean readBoolean(final String prompt,
+                                      final String[] truthyValues)
+            throws IOException
+    {
+        return readBoolean(prompt, StandardCharsets.UTF_8, truthyValues);
     }
 
     /**

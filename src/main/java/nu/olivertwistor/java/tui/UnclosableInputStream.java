@@ -5,8 +5,8 @@ import java.io.InputStream;
 
 /**
  * A decorator for InputStream. It does what the underlying InputStream does
- * with the exception of {@link InputStream#close()}. Instead of closing it, it
- * does nothing.
+ * except for {@link InputStream#close()}. Instead of closing it, it does
+ * nothing.
  *
  * @author nkukhar https://stackoverflow.com/users/369280/nkukhar
  * @author Johan Nilsson
@@ -16,7 +16,9 @@ import java.io.InputStream;
  * @see <a href="https://stackoverflow.com/a/14962425/2267803">
  *      Idea taken from an Stack Overflow answer by nkukhar</a>
  */
-public class UnclosableInputStream extends InputStream
+@SuppressWarnings({"ClassWithoutLogger", "PublicMethodWithoutLogging",
+        "WeakerAccess"})
+public final class UnclosableInputStream extends InputStream
 {
     /**
      * The InputStream to decorate.
@@ -90,12 +92,10 @@ public class UnclosableInputStream extends InputStream
     /**
      * Instead of closing the underlying InputStream, this method does nothing.
      *
-     * @throws IOException never thrown
-     *
      * @since 0.1.0
      */
     @Override
-    public void close() throws IOException
+    public void close()
     {
         // Do nothing instead of closing the underlying stream.
     }
@@ -103,8 +103,7 @@ public class UnclosableInputStream extends InputStream
     @Override
     public String toString()
     {
-        return "UnclosableInputStream{" +
-                "inputStream=" + this.inputStream +
-                '}';
+        return String.format("UnclosableInputStream[inputStream=%s]",
+                this.inputStream);
     }
 }
