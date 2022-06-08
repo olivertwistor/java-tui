@@ -1,6 +1,6 @@
 # Java TUI
 
-Java is a verbose language. When you want to deal with user interfaces, there is a lot of boiler-plate code you have to write. This library means to alleviate a lot of the boiler-plate code necessary when you want to have a textual user interface.
+Java is a verbose language. When you want to deal with user interfaces, there is a lot of boilerplate code you have to write. This library means to alleviate a lot of the boilerplate code necessary when you want to have a textual user interface.
 
 ## Installation
 
@@ -24,7 +24,7 @@ To build this library from source, please do the following:
 1. Download `java-tui-x.x.x-sources.jar` and unpack it.
 1. In that package, along with the source files you'll find the files `build.xml` and `build.properties`. With those, you can build the library (using [Apache ANT][6] or similar tools).
 
-## Usage4
+## Usage
 
 In this library, there are two classes: `Terminal` and `UnclosableInputStream`. With `Terminal`, you can write to standard output and read from standard input. An example:
 
