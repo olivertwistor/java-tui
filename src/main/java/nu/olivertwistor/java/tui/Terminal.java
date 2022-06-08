@@ -7,19 +7,20 @@ import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Utility class for writing to and reading from the terminal (standard input
  * and output).
- *
+ * <p>
  * It has convenience methods for reading strings and integers, as well as
  * writing string representations of objects. Many of these methods are
  * wrappers for {@link PrintStream} and {@link BufferedReader}.
  *
  * @since  0.1.0
  */
-@SuppressWarnings({"ClassWithoutLogger", "UtilityClassCanBeEnum",
-        "PublicMethodWithoutLogging"})
+@SuppressWarnings({"ClassWithoutLogger", "PublicMethodWithoutLogging",
+        "WeakerAccess"})
 public final class Terminal
 {
     /**
@@ -110,7 +111,7 @@ public final class Terminal
     @SuppressWarnings("WeakerAccess")
     public static String readString(final String prompt) throws IOException
     {
-        return Terminal.readString(prompt, StandardCharsets.UTF_8);
+        return readString(prompt, StandardCharsets.UTF_8);
     }
 
     /**
@@ -129,7 +130,7 @@ public final class Terminal
      */
     public static String readString(final Charset charset) throws IOException
     {
-        return Terminal.readString("", charset);
+        return readString("", charset);
     }
 
     /**
@@ -146,7 +147,7 @@ public final class Terminal
      */
     public static String readString() throws IOException
     {
-        return Terminal.readString("");
+        return readString("");
     }
 
     /**
@@ -169,7 +170,7 @@ public final class Terminal
      */
     public static int readInt(final String prompt) throws IOException
     {
-        final String rawInput = Terminal.readString(prompt);
+        final String rawInput = readString(prompt);
         final int intInput = Integer.parseInt(rawInput);
 
         return intInput;
@@ -191,7 +192,7 @@ public final class Terminal
      */
     public static int readInt() throws IOException
     {
-        return Terminal.readInt("");
+        return readInt("");
     }
 
     /**
@@ -211,17 +212,19 @@ public final class Terminal
      *
      * @throws IOException if reading from standard input failed.
      *
-     * @since //todo next released version
+     * @since 0.3.0
      *
      * @see BufferedReader#readLine()
      */
     public static boolean readBoolean(final String prompt,
                                       final Charset charset,
-                                      String ...truthyValues)
+                                      final String[] truthyValues)
             throws IOException
     {
-        final String rawInput = Terminal.readString(prompt, charset);
-        return Arrays.asList(truthyValues).contains(rawInput);
+        final String rawInput = readString(prompt, charset);
+        final List<String> strings = Arrays.asList(truthyValues);
+
+        return strings.contains(rawInput);
     }
 
     /**
@@ -239,16 +242,15 @@ public final class Terminal
      *
      * @throws IOException if reading from standard input failed.
      *
-     * @since //todo next released version
+     * @since 0.3.0
      *
      * @see BufferedReader#readLine()
      */
     public static boolean readBoolean(final String prompt,
-                                      String ...truthyValues)
+                                      final String[] truthyValues)
             throws IOException
     {
-        return Terminal.readBoolean(
-                prompt, StandardCharsets.UTF_8, truthyValues);
+        return readBoolean(prompt, StandardCharsets.UTF_8, truthyValues);
     }
 
     /**
