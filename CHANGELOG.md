@@ -4,7 +4,12 @@ This file chronicles all noteworthy changes to this project over time. It is bas
 
 ## [Unreleased]
 
--   
+-   Added
+    -   Overloaded `Terminal#readInt` method to control whether to return only if a valid integer is read.
+
+-   Changed
+    -   All previously existing `Terminal#readInt` methods defaults to only return if a valid integer is read.
+
 
 ## [0.3.0] (2022-06-08)
 

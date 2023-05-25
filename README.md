@@ -13,7 +13,7 @@ This is a library, not a stand-alone application. Include this in your own appli
 To make use of this library, please do the following:
 
 1. Make sure you meet the prerequisites:
-    * [Java 7 or later](https://java.com/download/) 
+    * [Java 7 or later][javadl] 
 1. Go to the [releases page][releasesPage] and find the specific version you want.
 1. Download `java-tui-x.x.x.jar` and place it in your own application's classpath.
 1. If you want Javadoc, download `java-tui-x.x.x-javadoc.jar`.
@@ -24,7 +24,7 @@ To make use of this library, please do the following:
 ### Build from source
 
 1. Make sure you meet the prerequisites:
-    * [Java 7 or later][2]
+    * [Java 7 or later][javadl]
 1. Go to the [releases page][releasesPage] and find the specific version you want.
 1. Download `java-tui-x.x.x-sources.jar` and unpack it.
 1. In that package, along with the source files you'll find the files `build.xml` and `build.properties`. With those, you can build the library (using [Apache ANT](https://ant.apache.org/) or similar tools).
@@ -95,4 +95,5 @@ Java TUI is distributed under an *MIT License*. You'll find the full license ter
 
 
 
+[javadl]: https://java.com/download/
 [releasesPage]: https://github.com/olivertwistor/java-tui/releases
