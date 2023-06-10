@@ -1,36 +1,13 @@
 # Contributing to this project
 
-I'm happy you're interested in contributing to this project. The open source community depends on people like you, and together we can make this project as good as it can possibly be. Thank you!
+I'm honoured that you are interested in contributing to my project. Open source is all about community and collaboration. People like you make it all possible.
+
+A good way to contribute is to look for typos or things that don't seem right, and [open an issue](https://github.com/olivertwistor/java-tui/issues/new). Better yet, if you're feeling so inclined, you may work on a fix yourself and when you're done, [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request). If your fix is accepted by me, it will be included in this project.
+
+I only use GitHub issues for things reported by you, not for all tasks in the whole project. An empty issue list doesn't necessarily mean that there is no ongoing development. I use an offline project manager to better be able to plan my work.
 
 ## Code of conduct
 
-The open source community should be open and welcoming for all. I have a zero tolerance policy against discrimination of race, ethnicity, religious affiliation, sexual orientation, gender identity, age, disability etc.
+Open source should be as inclusive as possible. I have a zero tolerance policy regarding discrimination of any kind. Try to be mindful of how you communicate with other users on GitHub. Behind the usernames are real people, and if you find someone who creates a "stupid" issue, comment or pull request, I urge you to be respectful. They may be a beginner, which we have all been at one time.
 
-I urge everyone to be respectful to each other and remember that behind that username is a human being. If someone makes a mistake or makes a "stupid" comment or question, please bear in mind that they may be a beginner, something everyone has once been.
-
-Feel free to contact me through my [GitHub page][1] if you have any questions or complaints regarding this or anything else.
-
-## Contribution ideas
-
-There are many ways in which you can contribute to this project. Some of them are listed here.
-
-### Report bugs, propose new features or changes in existing features
-
-All software has bugs, and I would very much appreciate help with identifying and reporting bugs, so they can be fixed. This is a good way to contribute even if you aren't a programmer yourself.
-
-#### How to create a new issue
-
-1. Go to the [new issue][2] page.
-1. Write a short and succinct *title*.
-1. Provide more details in the *comment* field if the title isn't enough.
-1. Leave everything else as it is.
-1. Press the button *Submit new issue*.
-
-## How to make changes to the project
-
-[GitHub help][3] is a very good resource on how to fork repositories, collaborate on issues and other things. If you need more help or want to discuss something else, please go to my [GitHub page][1] and contact me through there.
-
-
-[1]: https://github.com/olivertwistor
-[2]: https://github.com/olivertwistor/java-tui/issues/new
-[3]: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests
+Feel free to [reach out to me](mailto:oliver_twistor@hotmail.com) if you have any questions about this or if you have had a bad experience with this community.
