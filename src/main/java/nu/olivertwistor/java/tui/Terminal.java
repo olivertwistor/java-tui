@@ -16,8 +16,6 @@ import java.util.List;
  *
  * @since  0.1.0
  */
-@SuppressWarnings({"ClassWithoutLogger", "PublicMethodWithoutLogging",
-		"WeakerAccess"})
 public final class Terminal
 {
 	/**
@@ -62,7 +60,6 @@ public final class Terminal
 	 *
 	 * @see BufferedReader#readLine()
 	 */
-	@SuppressWarnings("WeakerAccess")
 	public static String readString(final String prompt, final Charset charset)	throws IOException
 	{
 
@@ -95,7 +92,6 @@ public final class Terminal
 	 *
 	 * @see BufferedReader#readLine()
 	 */
-	@SuppressWarnings("WeakerAccess")
 	public static String readString(final String prompt) throws IOException
 	{
 		return readString(prompt, StandardCharsets.UTF_8);
