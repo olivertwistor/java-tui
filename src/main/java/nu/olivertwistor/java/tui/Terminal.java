@@ -16,8 +16,6 @@ import java.util.List;
  *
  * @since  0.1.0
  */
-@SuppressWarnings({"ClassWithoutLogger", "PublicMethodWithoutLogging",
-		"WeakerAccess"})
 public final class Terminal
 {
 	/**
@@ -62,7 +60,6 @@ public final class Terminal
 	 *
 	 * @see BufferedReader#readLine()
 	 */
-	@SuppressWarnings("WeakerAccess")
 	public static String readString(final String prompt, final Charset charset)	throws IOException
 	{
 
@@ -95,7 +92,6 @@ public final class Terminal
 	 *
 	 * @see BufferedReader#readLine()
 	 */
-	@SuppressWarnings("WeakerAccess")
 	public static String readString(final String prompt) throws IOException
 	{
 		return readString(prompt, StandardCharsets.UTF_8);
@@ -150,7 +146,7 @@ public final class Terminal
 	 *
 	 * @see BufferedReader#readLine()
 	 */
-	public static int readInt(final String prompt, final boolean requireValidInt) throws IOException
+	public static int readInt(final String prompt, final RequireValidInt requireValidInt) throws IOException
 	{
 		boolean validInput = false;
 		int intInput = 0;
@@ -165,7 +161,7 @@ public final class Terminal
 			}
 			catch (final NumberFormatException e)
 			{
-				if (!requireValidInt)
+				if (requireValidInt == RequireValidInt.REQUIRE)
 				{
 					throw e;
 				}
@@ -192,7 +188,7 @@ public final class Terminal
 	 */
 	public static int readInt(final String prompt) throws IOException
 	{
-		return readInt(prompt, true);
+		return readInt(prompt, RequireValidInt.REQUIRE);
 	}
 
 	/**
@@ -210,7 +206,7 @@ public final class Terminal
 	 *
 	 * @see BufferedReader#readLine()
 	 */
-	public static int readInt(final boolean requireValidInt) throws IOException
+	public static int readInt(final RequireValidInt requireValidInt) throws IOException
 	{
 		return readInt("", requireValidInt);
 	}
@@ -229,7 +225,7 @@ public final class Terminal
 	 */
 	public static int readInt() throws IOException
 	{
-		return readInt("", true);
+		return readInt("", RequireValidInt.REQUIRE);
 	}
 
 	/**
@@ -280,4 +276,9 @@ public final class Terminal
 	 * @since 0.1.0
 	 */
 	private Terminal() { }
+
+	private enum RequireValidInt {
+		REQUIRE,
+		DO_NOT_REQUIRE
+	}
 }
