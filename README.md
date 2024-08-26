@@ -13,13 +13,13 @@ This is a library, not a stand-alone application. Include this in your own appli
 To make use of this library, please do the following:
 
 1. Make sure you meet the prerequisites:
-    * [Java 7 or later][javadl] 
+    * [Java 7 or later][javadl]
 1. Go to the [releases page][releasesPage] and find the specific version you want.
 1. Download `java-tui-x.x.x.jar` and place it in your own application's classpath.
 1. If you want Javadoc, download `java-tui-x.x.x-javadoc.jar`.
     * Please refer to your particular IDE on how to attach that to the previous JAR file you downloaded.
     * If you're not using an IDE, you can unpack the JAR file and browse the Javadoc in a web browser.
-    
+
 
 ### Build from source
 
@@ -38,16 +38,16 @@ import nu.olivertwistor.java.tui.Terminal;
 
 class App
 {
-    public static void main(final String[] args) throws Exception
-    {
-        Terminal.writeLine("Welcome to this app!");
-        Terminal.write("This is the beginning of one line. ");
-        Terminal.writeLine("This is continuing on that line.");
+	public static void main(final String[] args) throws Exception
+	{
+		Terminal.writeLine("Welcome to this app!");
+		Terminal.write("This is the beginning of one line. ");
+		Terminal.writeLine("This is continuing on that line.");
 
-        final int age = Terminal.readInt("Please state your age: ");
-        Terminal.write("Your age is ");
-        Terminal.writeLine(age);
-    }
+		final int age = Terminal.readInt("Please state your age: ");
+		Terminal.write("Your age is ");
+		Terminal.writeLine(age);
+	}
 }
 ```
 
@@ -71,22 +71,22 @@ import nu.olivertwistor.java.tui.UnclosableInputStream;
 
 class App
 {
-    public static void main(final String[] args) throws Exception
-    {
-        // Change the system input stream to prevent it closing.
-        System.setIn(new UnclosableInputStream(System.in));
+	public static void main(final String[] args) throws Exception
+	{
+		// Change the system input stream to prevent it closing.
+		System.setIn(new UnclosableInputStream(System.in));
 
-        try (final BufferedReader br = new BufferedReader(
-                new InputStreamReader(System.in, StandardCharsets.UTF_8)))
-        {
-            System.out.println(br.readLine());
-        }
-        finally
-        {
-            // Reset the system input stream.
-            System.setIn(System.in);
-        }
-    }
+		try (final BufferedReader br = new BufferedReader(
+				new InputStreamReader(System.in, StandardCharsets.UTF_8)))
+		{
+			System.out.println(br.readLine());
+		}
+		finally
+		{
+			// Reset the system input stream.
+			System.setIn(System.in);
+		}
+	}
 }
 ```
 
