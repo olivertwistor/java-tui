@@ -4,7 +4,10 @@ Library for text-based user interfaces. It's main purpose is to alleviate boiler
 
 ## Goals
 
-Java is a verbose language. When you want to deal with user interfaces, there is a lot of boilerplate code you have to write. This library means to alleviate some of that when you want to have a text-based user interface. Java TUI is not intended to be a full-fledged framework for text-based user interfaces, but rather solve a particular small set of problems, mainly handling input from *stdin*.
+Java is a verbose language. When you want to deal with user interfaces, there is a lot of boilerplate code you have to
+write. This library means to alleviate some of that when you want to have a text-based user interface. Java TUI is not
+intended to be a full-fledged framework for text-based user interfaces, but rather solve a particular small set of
+problems, mainly handling input from *stdin*.
 
 ## Installation
 
@@ -13,25 +16,26 @@ This is a library, not a stand-alone application. Include this in your own appli
 To make use of this library, please do the following:
 
 1. Make sure you meet the prerequisites:
-    * [Java 7 or later][javadl]
+    * [Java 8 or later][javadl]
 1. Go to the [releases page][releasesPage] and find the specific version you want.
 1. Download `java-tui-x.x.x.jar` and place it in your own application's classpath.
 1. If you want Javadoc, download `java-tui-x.x.x-javadoc.jar`.
     * Please refer to your particular IDE on how to attach that to the previous JAR file you downloaded.
     * If you're not using an IDE, you can unpack the JAR file and browse the Javadoc in a web browser.
 
-
 ### Build from source
 
 1. Make sure you meet the prerequisites:
-    * [Java 7 or later][javadl]
+    * [Java 8 or later][javadl]
 1. Go to the [releases page][releasesPage] and find the specific version you want.
 1. Download `java-tui-x.x.x-sources.jar` and unpack it.
-1. In that package, along with the source files you'll find the files `build.xml` and `build.properties`. With those, you can build the library (using [Apache ANT](https://ant.apache.org/) or similar tools).
+1. In that package, along with the source files you'll find the files `build.xml` and `build.properties`. With those,
+   you can build the library (using [Apache ANT](https://ant.apache.org/) or similar tools).
 
 ## Usage
 
-In this library, there are two classes: `Terminal` and `UnclosableInputStream`. With `Terminal`, you can write to standard output and read from standard input. `Terminal` makes use of `UnclosableInputStream` internally. An example:
+In this library, there are two classes: `Terminal` and `UnclosableInputStream`. With `Terminal`, you can write to
+standard output and read from standard input. `Terminal` makes use of `UnclosableInputStream` internally. An example:
 
 ```java
 import nu.olivertwistor.java.tui.Terminal;
@@ -60,7 +64,8 @@ Please state your age: 36
 Your age is 36
 ```
 
-The other class, `UnclosableInputStream` provides an InputStream that doesn't automatically close itself after use. An example:
+The other class, `UnclosableInputStream` provides an InputStream that doesn't automatically close itself after use. An
+example:
 
 ```java
 import java.io.BufferedReader;
@@ -91,9 +96,10 @@ class App
 ```
 
 ## Licenses
+
 Java TUI is distributed under an *MIT License*. You'll find the full license terms in the file [LICENSE](LICENSE).
 
 
-
 [javadl]: https://java.com/download/
+
 [releasesPage]: https://github.com/olivertwistor/java-tui/releases

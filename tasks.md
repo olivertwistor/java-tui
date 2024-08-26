@@ -8,6 +8,7 @@ In this document, we keep track of both a work breakdown structure and a network
 | ------- | ----------------------------------- | -------- | ------------ |
 | 14      | Upload the project to Maven Central | 2        |              |
 | 15      | Implement logging through SLF4J     | 3        |              |
+||Convert to modular project||
 
 ## Network diagram
 

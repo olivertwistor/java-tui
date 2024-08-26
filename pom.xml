@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nu.olivertwistor</groupId>
     <artifactId>java-tui</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
 
     <licenses>
         <license>
@@ -21,8 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <project.build.release>8</project.build.release>
     </properties>
 
     <build>
@@ -45,6 +44,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.2.0</version>
+                <configuration>
+                    <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
+                    <failOnWarnings>true</failOnWarnings>
+                    <quiet>true</quiet>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
