@@ -27,10 +27,8 @@ To make use of this library, please do the following:
 
 1. Make sure you meet the prerequisites:
     * [Java 8 or later][javadl]
-1. Go to the [releases page][releasesPage] and find the specific version you want.
-1. Download `java-tui-x.x.x-sources.jar` and unpack it.
-1. In that package, along with the source files you'll find the files `build.xml` and `build.properties`. With those,
-   you can build the library (using [Apache ANT](https://ant.apache.org/) or similar tools).
+2. Clone this repository.
+3. Build using the file `pom.xml`.
 
 ## Usage
 
