@@ -1,4 +1,6 @@
 .idea/
+docs/
 releases/
 target/
 *.iml
+projektplan.md
