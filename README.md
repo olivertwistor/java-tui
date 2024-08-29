@@ -28,7 +28,8 @@ To make use of this library, please do the following:
 1. Make sure you meet the prerequisites:
     * [Java 8 or later][javadl]
 2. Clone this repository.
-3. Build using the file `pom.xml`.
+3. If you want to build the latest release, go to the branch `production`. If you want the bleeding edge (might not be entirely stable, but it should build), go to the branch `main`.
+4. Build using the file `pom.xml`.
 
 ## Usage
 
