@@ -12,21 +12,12 @@ import java.util.List;
 /**
  * Utility class for writing to and reading from the terminal (standard input and output).
  * <p>
- * It has convenience methods for reading strings and integers, as well as writing string representations of objects. Many of these methods are wrappers for {@link PrintStream} and {@link BufferedReader}.
+ * It has convenience methods for reading strings, integers and booleans, as well as writing string representations of objects.
  *
  * @since 0.1.0
  */
 public final class Terminal
 {
-	/**
-	 * Empty constructor, only for preventing instantiation.
-	 *
-	 * @since 0.1.0
-	 */
-	private Terminal()
-	{
-	}
-
 	/**
 	 * Writes the string representation of a given object to standard output, and ends with a new line.
 	 *
