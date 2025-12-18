@@ -2,7 +2,6 @@ package nu.olivertwistor.java.tui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
@@ -12,12 +11,15 @@ import java.util.List;
 /**
  * Utility class for writing to and reading from the terminal (standard input and output).
  * <p>
- * It has convenience methods for reading strings, integers and booleans, as well as writing string representations of objects.
+ * It has convenience methods for reading strings, integers and booleans, as well as writing string representations of
+ * objects.
  *
  * @since 0.1.0
  */
-public final class Terminal
+public enum Terminal
 {
+	;
+
 	/**
 	 * Writes the string representation of a given object to standard output, and ends with a new line.
 	 *
@@ -28,7 +30,7 @@ public final class Terminal
 	 */
 	public static void writeLine(final Object object)
 	{
-		writeLine(object, System.out);
+		Terminal.writeLine(object, System.out);
 	}
 
 	/**
@@ -38,7 +40,7 @@ public final class Terminal
 	 * @param stream the print stream to which to write
 	 *
 	 * @see PrintStream#println(Object)
-	 * @since //todo next version
+	 * @since 0.5.0
 	 */
 	public static void writeLine(final Object object, final PrintStream stream)
 	{
@@ -55,7 +57,7 @@ public final class Terminal
 	 */
 	public static void write(final Object object)
 	{
-		write(object, System.out);
+		Terminal.write(object, System.out);
 	}
 
 	/**
@@ -65,7 +67,7 @@ public final class Terminal
 	 * @param stream the print stream to which to write
 	 *
 	 * @see PrintStream#print(Object)
-	 * @since //todo next version
+	 * @since 0.5.0
 	 */
 	public static void write(final Object object, final PrintStream stream)
 	{
@@ -73,48 +75,53 @@ public final class Terminal
 	}
 
 	/**
-	 * Reads an integer from standard input. Everything until the next line feed is read, including whitespace. This method doesn't return until what's read really is an integer.
+	 * Reads an integer from standard input. Everything until the next line feed is read, including whitespace. This
+	 * method doesn't return until what's read really is an integer.
 	 *
-	 * @param prompt string to write to standard output before waiting for input, for example "How old are you? " before waiting for the user to input their age
+	 * @param prompt string to write to standard output before waiting for input, for example "How old are you? "
+	 * 	before waiting for the user to input their age
 	 *
 	 * @return The user input as an integer.
 	 *
 	 * @throws IOException if reading from standard input failed.
 	 * @throws NumberFormatException if user input failed to be converted to an integer.
 	 * @see BufferedReader#readLine()
-	 * @since 0.4.0 next version Now this method doesn't return until what's read really is an integer
+	 * @since 0.4.0 Now this method doesn't return until what's read really is an integer
 	 * @since 0.1.0
 	 */
 	public static int readInt(final String prompt) throws IOException
 	{
-		return readInt(prompt, true);
+		return Terminal.readInt(prompt, true);
 	}
 
 	/**
-	 * Reads an integer from standard input. Everything until the next line feed is read, including whitespace. Optionally, this method doesn't return until a valid integer has been read.
+	 * Reads an integer from standard input. Everything until the next line feed is read, including whitespace.
+	 * Optionally, this method doesn't return until a valid integer has been read.
 	 *
-	 * @param prompt string to write to standard output before waiting for input, for example "How old are you? " before waiting for the user to input their age
+	 * @param prompt string to write to standard output before waiting for input, for example "How old are you? "
+	 * 	before waiting for the user to input their age
 	 * @param requireValidInt whether this method should wait to return until a valid integer is read
 	 *
 	 * @return The user input as an integer.
 	 *
 	 * @throws IOException if reading from standard input failed.
-	 * @throws NumberFormatException if requiredValidInt is false, and user input failed to be converted to an integer.
+	 * @throws NumberFormatException if requiredValidInt is false, and user input failed to be converted to an
+	 * 	integer.
 	 * @see BufferedReader#readLine()
 	 * @since 0.4.0
 	 */
 	public static int readInt(final String prompt, final boolean requireValidInt) throws IOException
 	{
-		boolean validInput = false;
+		boolean invalidInput = true;
 		int intInput = 0;
 
-		while (!validInput)
+		while (invalidInput)
 		{
-			final String rawInput = readString(prompt);
+			final String rawInput = Terminal.readString(prompt);
 			try
 			{
 				intInput = Integer.parseInt(rawInput);
-				validInput = true;
+				invalidInput = false;
 			}
 			catch (final NumberFormatException e)
 			{
@@ -129,9 +136,11 @@ public final class Terminal
 	}
 
 	/**
-	 * Reads a string from standard input, using UTF-8. It reads everything until the next line feed, including whitespace.
+	 * Reads a string from standard input, using UTF-8. It reads everything until the next line feed, including
+	 * whitespace.
 	 *
-	 * @param prompt string to write to standard output before waiting for input, for example "What is your name? " before waiting for the user to input their name
+	 * @param prompt string to write to standard output before waiting for input, for example "What is your name? "
+	 * 	before waiting for the user to input their name
 	 *
 	 * @return The user input using the chosen character set.
 	 *
@@ -157,11 +166,13 @@ public final class Terminal
 	}
 
 	/**
-	 * Reads a string from a given input stream, using UTF-8. It reads everything until the next line feed, including whitespace.
+	 * Reads a string from a given input stream, using UTF-8. It reads everything until the next line feed, including
+	 * whitespace.
 	 *
 	 * @param inStream the input stream from which to read
 	 * @param outStream the print stream to which to write
-	 * @param prompt string to write to the out-stream before waiting for input, for example "What is your name? " before waiting for the user to input their name
+	 * @param prompt string to write to the out-stream before waiting for input, for example "What is your name? "
+	 * 	before waiting for the user to input their name
 	 *
 	 * @return The user input using UTF-8.
 	 *
@@ -169,7 +180,8 @@ public final class Terminal
 	 * @see BufferedReader#readLine()
 	 * @since //todo next version
 	 */
-	public static String readString(final InputStream inStream, final PrintStream outStream, final String prompt) throws IOException
+	public static String readString(final InputStream inStream, final PrintStream outStream, final String prompt)
+		throws IOException
 	{
 		outStream.print(prompt);
 
@@ -180,11 +192,13 @@ public final class Terminal
 	}
 
 	/**
-	 * Reads an integer from a given input stream, using UTF-8. Everything until the next line feed is read, including whitespace. Optionally, this method doesn't return until a valid integer has been read.
+	 * Reads an integer from a given input stream, using UTF-8. Everything until the next line feed is read, including
+	 * whitespace. Optionally, this method doesn't return until a valid integer has been read.
 	 *
 	 * @param inStream the input stream from which to read
 	 * @param outStream the print stream to which to write
-	 * @param prompt string to write to the out-stream before waiting for input, for example "How old are you? " before waiting for the user to input their age
+	 * @param prompt string to write to the out-stream before waiting for input, for example "How old are you? " before
+	 * 	waiting for the user to input their age
 	 * @param requireValidInt whether this method should wait to return until a valid integer is read
 	 *
 	 * @return The user input as an integer.
@@ -194,7 +208,8 @@ public final class Terminal
 	 * @see BufferedReader#readLine()
 	 * @since //todo next version
 	 */
-	public static int readInt(final InputStream inStream, final PrintStream outStream, final String prompt, final boolean requireValidInt) throws IOException
+	public static int readInt(final InputStream inStream, final PrintStream outStream, final String prompt,
+		final boolean requireValidInt) throws IOException
 	{
 		boolean validInput = false;
 		int intInput = 0;
@@ -234,7 +249,8 @@ public final class Terminal
 	}
 
 	/**
-	 * Reads an integer from standard input. Everything until the next line feed is read, including whitespace. Optionally, this method doesn't return until a valid integer has been read.
+	 * Reads an integer from standard input. Everything until the next line feed is read, including whitespace.
+	 * Optionally, this method doesn't return until a valid integer has been read.
 	 *
 	 * @param requireValidInt whether this method should wait to return until a valid integer is read
 	 *
@@ -252,7 +268,8 @@ public final class Terminal
 	}
 
 	/**
-	 * Reads an integer from standard input. Everything until the next line feed is read, including whitespace. This method doesn't return until what's read really is an integer.
+	 * Reads an integer from standard input. Everything until the next line feed is read, including whitespace. This
+	 * method doesn't return until what's read really is an integer.
 	 *
 	 * @return The user input as an integer.
 	 *
@@ -267,10 +284,13 @@ public final class Terminal
 	}
 
 	/**
-	 * Reads a boolean from standard input, using UTF-8. It reads everything until the next line feed, including whitespace.
+	 * Reads a boolean from standard input, using UTF-8. It reads everything until the next line feed, including
+	 * whitespace.
 	 *
-	 * @param prompt string to write to standard output before waiting for input, for example "Are you hungry? " before waiting for the user to input their answer
-	 * @param truthyValues strings that are to be interpreted as Boolean true, for example "y", "1" and "yes". All other strings are interpreted as Boolean false
+	 * @param prompt string to write to standard output before waiting for input, for example "Are you hungry? " before
+	 * 	waiting for the user to input their answer
+	 * @param truthyValues strings that are to be interpreted as Boolean true, for example "y", "1" and "yes". All
+	 * 	other strings are interpreted as Boolean false
 	 *
 	 * @return The user input, interpreted as a boolean.
 	 *
@@ -284,21 +304,26 @@ public final class Terminal
 	}
 
 	/**
-	 * Reads a boolean from a given input stream, using UTF-8. It reads everything until the next line feed, including whitespace.
+	 * Reads a boolean from a given input stream, using UTF-8. It reads everything until the next line feed, including
+	 * whitespace.
 	 *
 	 * @param inStream the input stream from which to read
 	 * @param outStream the output stream to which to write
-	 * @param prompt string to write to the out-stream before waiting for input, for example "Are you hungry? " before waiting for the user to input their name
-	 * @param truthyValues strings that are to be interpreted as Boolean true, for example "y", "1" and "yes". All other strings are interpreted as Boolean false
+	 * @param prompt string to write to the out-stream before waiting for input, for example "Are you hungry? " before
+	 * 	waiting for the user to input their name
+	 * @param truthyValues strings that are to be interpreted as Boolean true, for example "y", "1" and "yes". All
+	 * 	other strings are interpreted as Boolean false
 	 *
 	 * @return The user input, interpreted as a boolean.
 	 *
 	 * @throws IOException if reading from standard input failed.
 	 * @see BufferedReader#readLine()
-	 * @since //todo next version Requires an input stream and an output stream instead of assuming standard in- and output. UTF-8 is also assumed.
+	 * @since //todo next version Requires an input stream and an output stream instead of assuming standard in- and
+	 * 	output. UTF-8 is also assumed.
 	 * @since 0.3.0
 	 */
-	public static boolean readBoolean(final InputStream inStream, final PrintStream outStream, final String prompt, final String... truthyValues) throws IOException
+	public static boolean readBoolean(final InputStream inStream, final PrintStream outStream, final String prompt,
+		final String... truthyValues) throws IOException
 	{
 		final String rawInput = readString(inStream, outStream, prompt);
 		final List<String> strings = Arrays.asList(truthyValues);
