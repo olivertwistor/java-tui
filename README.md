@@ -106,6 +106,9 @@ class App
 
 Java TUI is distributed under an *MIT License*. You'll find the full license terms in the file [LICENSE](LICENSE).
 
+## Related projects
+
+- [TamboUI](https://tamboui.dev/) - similar goals.
 
 [javadl]: https://java.com/download/
 
